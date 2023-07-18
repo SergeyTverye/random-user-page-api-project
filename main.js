@@ -2,11 +2,13 @@ $(document).ready(() => {
     const apiManager = new APIManager();
     const renderer = new Renderer();
 
-    $('button:contains("Load User Data")').on('click', () => {
-        apiManager.loadData();
+    $('button:contains("Display User")').on('click', async () => {
+        try {
+            await apiManager.loadData();
+            renderer.render(apiManager.data);
+        } catch (error) {
+            console.error('Error loading data:', error);
+        }
     });
 
-    $('button:contains("Display User")').on('click', () => {
-        renderer.render(apiManager.data);
-    });
 });

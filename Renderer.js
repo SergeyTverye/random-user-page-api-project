@@ -1,5 +1,6 @@
 class Renderer {
     renderUser(user) {
+        console.log('user in render =', user);
         let source = $('#user-template').html();
         let template = Handlebars.compile(source);
         let newHTML = template(user);
@@ -14,6 +15,7 @@ class Renderer {
     }
 
     renderQuote(quote) {
+        console.log('quote in render =', quote)
         let source = $('#quote-template').html();
         let template = Handlebars.compile(source);
         let newHTML = template({quote});
@@ -21,6 +23,7 @@ class Renderer {
     }
 
     renderPokemon(pokemon) {
+        console.log('pokemon in render =', pokemon)
         let source = $('#pokemon-template').html();
         let template = Handlebars.compile(source);
         let newHTML = template(pokemon);
@@ -35,6 +38,7 @@ class Renderer {
     }
 
     render(data) {
+        console.log("render called");
         this.renderUser(data.user);
         this.renderFriends(data.friends);
         this.renderQuote(data.quote);

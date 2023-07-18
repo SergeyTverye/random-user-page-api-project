@@ -15,19 +15,47 @@
 
 <body>
 <div class="container">
-    <div class="user-container"></div>
-    <div class="quote-container"></div>
+    <div class="user-container">
+        <script id="user-template" type="text/x-handlebars-template">
+            <img src="{{picture.large}}" alt="User photo" id="profile-pic">
+            <div class="user-info">
+                <h2>{{name.first}} {{name.last}}</h2>
+                <p>{{location.city}}, {{location.state}}</p>
+            </div>
+        </script>
+    </div>
+
+    <div class="quote-container">
+        <script id="quote-template" type="text/x-handlebars-template">
+            <h3>Kanye says:</h3>
+            <p>{{quote}}</p>
+        </script>
+    </div>
     <div class="content-container">
-        <div class="pokemon-container"></div>
-        <div class="meat-container"></div>
+        <div class="pokemon-container">
+            <script id="pokemon-template" type="text/x-handlebars-template">
+                <img src="{{img}}" alt="Pokemon" id="pokemon-image">
+                <p id="pokemon-text">{{name}}</p>
+            </script>
+        </div>
+        <div class="meat-container">
+            <script id="meat-template" type="text/x-handlebars-template">
+                <h3>About me</h3>
+                <p class="meat-text">{{meat}}</p>
+            </script>
+        </div>
     </div>
     <div class="friends">
         <h4>Friends</h4>
         <div class="friends-container">
+            <script id="friends-template" type="text/x-handlebars-template">
+                {{#each friends}}
+                    <li>{{this.name.first}} {{this.name.last}}</li>
+                {{/each}}
+            </script>
         </div>
     </div>
     <div class="buttons">
-        <button>Load User Data</button>
         <button>Display User</button>
     </div>
 </div>
