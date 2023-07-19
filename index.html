@@ -16,47 +16,52 @@
 <body>
 <div class="container">
     <div class="user-container">
-        <script id="user-template" type="text/x-handlebars-template">
-            <img src="{{picture.large}}" alt="User photo" id="profile-pic">
-            <div class="user-info">
-                <h2>{{name.first}} {{name.last}}</h2>
-                <p>{{location.city}}, {{location.state}}</p>
-            </div>
-        </script>
     </div>
+    <script id="user-template" type="text/x-handlebars-template">
+        <img src="{{picture.large}}" alt="User photo" id="profile-pic">
+        <div class="user-info">
+            <h2>{{name.first}} {{name.last}}</h2>
+            <p>{{location.city}}, {{location.state}}</p>
+        </div>
+    </script>
 
     <div class="quote-container">
-        <script id="quote-template" type="text/x-handlebars-template">
-            <h3>Kanye says:</h3>
-            <p>{{quote}}</p>
-        </script>
     </div>
+    <script id="quote-template" type="text/x-handlebars-template">
+        <h3>Kanye says:</h3>
+        <p>{{quote}}</p>
+    </script>
+
     <div class="content-container">
         <div class="pokemon-container">
-            <script id="pokemon-template" type="text/x-handlebars-template">
-                <img src="{{img}}" alt="Pokemon" id="pokemon-image">
-                <p id="pokemon-text">{{name}}</p>
-            </script>
         </div>
+        <script id="pokemon-template" type="text/x-handlebars-template">
+            <img src="{{img}}" alt="Pokemon" id="pokemon-image">
+            <p id="pokemon-text">{{properCase name}}</p>
+        </script>
         <div class="meat-container">
-            <script id="meat-template" type="text/x-handlebars-template">
-                <h3>About me</h3>
-                <p class="meat-text">{{meat}}</p>
-            </script>
         </div>
+        <script id="meat-template" type="text/x-handlebars-template">
+            <h3>About me</h3>
+            <p class="meat-text">{{meat}}</p>
+        </script>
     </div>
     <div class="friends">
         <h4>Friends</h4>
         <div class="friends-container">
-            <script id="friends-template" type="text/x-handlebars-template">
-                {{#each friends}}
-                    <li>{{this.name.first}} {{this.name.last}}</li>
-                {{/each}}
-            </script>
         </div>
+        <script id="friends-template" type="text/x-handlebars-template">
+            {{#each friends}}
+                <li>{{this.name.first}} {{this.name.last}}</li>
+            {{/each}}
+        </script>
     </div>
     <div class="buttons">
-        <button>Display User</button>
+        <button id="display-btn">Display User</button>
+        <button id="save-btn">Save User Page</button>
+        <button id="load-btn">Load User Page</button>
+        <select id="saved-users"></select>
+        <button id="clear-storage-btn">Clear Local Storage</button>
     </div>
 </div>
 </body>
