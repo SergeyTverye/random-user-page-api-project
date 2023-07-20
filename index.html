@@ -32,7 +32,13 @@
         <p>{{quote}}</p>
     </script>
 
+
     <div class="content-container">
+        <div class="pokemon-gif-container">
+        </div>
+        <script id="pokemon-gif-template" type="text/x-handlebars-template">
+            <iframe src="{{pokemonGif}}"></iframe>
+        </script>
         <div class="pokemon-container">
         </div>
         <script id="pokemon-template" type="text/x-handlebars-template">

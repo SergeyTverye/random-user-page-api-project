@@ -31,15 +31,11 @@ $(document).ready(() => {
     updateSavedUsersList(savedUsers);
 
     const lastUser = storageManager.getFromStorage('lastDisplayedUser');
-    console.log('Loaded last user:', lastUser);
     if (lastUser) {
-        console.log('Rendering last user...');
         renderer.render(lastUser);
-        console.log('Rendering finished.');
+        setColors(lastUser)
     } else {
-        console.log('Displaying new user...');
         displayUser();
-        console.log('Finished displaying new user.');
     }
 
     $('#display-btn').on('click', displayUser);
@@ -56,6 +52,7 @@ $(document).ready(() => {
             const data = apiManager.data;
             renderer.render(data);
             storageManager.saveToStorage('lastDisplayedUser', data);
+            setColors(data);
         } catch(error) {
             console.error('Error loading data:', error);
         }
@@ -89,5 +86,10 @@ $(document).ready(() => {
             const userName = `${savedUsers[userId].user.name.first} ${savedUsers[userId].user.name.last}`;
             $select.append(`<option value="${userId}">${userName}</option>`);
         }
+    }
+
+    function setColors(data) {
+        $('body').css('background-color', data.pokemon.color.bg);
+        $('body').css('color', data.pokemon.color.text);
     }
 });
