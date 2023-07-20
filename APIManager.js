@@ -76,7 +76,6 @@ class APIManager {
                     if (!response.sprites.other.dream_world.front_default) {
                         fetchData();
                     } else {
-                        console.log(response)
                         this.data.pokemon = {
                             name: response.name,
                             img: response.sprites.other.dream_world.front_default,

@@ -89,7 +89,9 @@ $(document).ready(() => {
     }
 
     function setColors(data) {
-        $('body').css('background-color', data.pokemon.color.bg);
-        $('body').css('color', data.pokemon.color.text);
+        // $('body').css('background-color', data.pokemon.color.bg + ' !important');
+        // $('body').css('color', data.pokemon.color.text + ' !important');
+        $('body').attr('style', 'background-color: ' + data.pokemon.color.bg + ' !important; color: ' + data.pokemon.color.text + ' !important');
+
     }
 });
